@@ -8,13 +8,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Cleverbot.Net;
 using Serial_UI;
+using System.Windows.Forms;
 
 namespace Serial_UI
 {
     class SpeechHandler
     {
         private Thread l_Thread;
-        private bool should_Listen;
+        private bool should_Listen = false;
         private SpeechRecognitionEngine recognizer;
         private SpeechSynthesizer synth;
         private CleverbotSession session;
@@ -42,6 +43,7 @@ namespace Serial_UI
             {
                 l_Thread = new Thread(new ThreadStart(listening));
                 l_Thread.Start();
+                should_Listen = true;
             }
             else
             {
@@ -64,10 +66,13 @@ namespace Serial_UI
 
         private void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            //Console.WriteLine("Speech recognized: " + e.Result.Text);
-            
+            Console.WriteLine("Speech recognized: " + e.Result.Text);
+            Serial_Interface.Input_Value = e.Result.Text;
+
             var response = Cleverbot.getChatResponse(session, e.Result.Text);
             Console.WriteLine("Cleverbot: " + response);
+
+            Serial_Interface.Output_Value = response;
             synth.Speak(response);
         }
 

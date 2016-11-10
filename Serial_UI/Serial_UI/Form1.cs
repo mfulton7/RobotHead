@@ -15,6 +15,8 @@ namespace Serial_UI
     public partial class Serial_Interface : Form
     {
         private SpeechHandler speech;
+        public static string Input_Value;
+        public static string Output_Value;
 
         public Serial_Interface()
         {
@@ -84,5 +86,12 @@ namespace Serial_UI
         {
             speech = new SpeechHandler();
         }
+
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            speech.Close_Thread();
+            Application.Exit();
+        }
     }
 }
+

@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.IO.Ports;
 using System.Threading;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cleverbot.Net;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Serial_UI
 {
@@ -15,6 +15,7 @@ namespace Serial_UI
     static class Program
     {
         public static bool l_thread;
+
         [STAThread]
         static void Main()
         {

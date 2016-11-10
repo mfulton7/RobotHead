@@ -137,7 +137,6 @@
             this.Controls.Add(this.Listen_Button);
             this.Controls.Add(this.Command_Button);
             this.Controls.Add(this.Command_Line);
-            this.Name = "Serial_Interface";
             this.Text = "Robot Head Program";
             this.ResumeLayout(false);
             this.PerformLayout();
