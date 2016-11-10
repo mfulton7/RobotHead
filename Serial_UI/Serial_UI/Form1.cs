@@ -14,9 +14,15 @@ namespace Serial_UI
 {
     public partial class Serial_Interface : Form
     {
+        private SpeechHandler speech;
+
         public Serial_Interface()
         {
             InitializeComponent();
+
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(create_Speech_Session);
+            bw.RunWorkerAsync();
         }
 
         private void COM_Button_Click(object sender, EventArgs e)
@@ -63,25 +69,20 @@ namespace Serial_UI
             if (!Program.l_thread)
             {
                 Listen_Button.Text = "Stop Listening";
+                speech.Begin_Listening();
                 Program.l_thread = true;
-                SpeechHandler speech = new SpeechHandler();
-                Thread oThread = new Thread(new ThreadStart(speech.Begin_Listening));
-                oThread.Start();
-                var session = Cleverbot.createSession();
-                
-                
-                oThread.Abort();
-                Program.l_thread = false;
             }
             else
             {
-
+                Listen_Button.Text = "Start Listening";
+                speech.Stop_Listening();
+                Program.l_thread = false;
             }
+        }
 
-            //print what cleverbot heard
-            //print response
-            //split response
-            //send response
+        private void create_Speech_Session(object sender, DoWorkEventArgs e)
+        {
+            speech = new SpeechHandler();
         }
     }
 }

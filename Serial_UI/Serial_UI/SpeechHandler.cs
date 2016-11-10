@@ -4,6 +4,7 @@ using System.Speech.Synthesis;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Cleverbot.Net;
 using Serial_UI;
@@ -12,6 +13,8 @@ namespace Serial_UI
 {
     class SpeechHandler
     {
+        private Thread l_Thread;
+        private bool should_Listen;
         private SpeechRecognitionEngine recognizer;
         private SpeechSynthesizer synth;
         private CleverbotSession session;
@@ -35,20 +38,49 @@ namespace Serial_UI
 
         public void Begin_Listening()
         {
-            while (true)
+            if (l_Thread == null)
             {
-                recognizer.Recognize();
+                l_Thread = new Thread(new ThreadStart(listening));
+                l_Thread.Start();
+            }
+            else
+            {
+                should_Listen = true;
             }
         }
 
-        void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        public void Stop_Listening()
+        {
+            should_Listen = false;
+        }
+
+        public void Close_Thread()
+        {
+            if (l_Thread.IsAlive)
+            {
+                l_Thread.Abort();
+            }
+        }
+
+        private void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             //Console.WriteLine("Speech recognized: " + e.Result.Text);
             
             var response = Cleverbot.getChatResponse(session, e.Result.Text);
             Console.WriteLine("Cleverbot: " + response);
             synth.Speak(response);
-            
         }
+
+        private void listening()
+        {
+            while (true)
+            {
+                if (should_Listen)
+                {
+                    recognizer.Recognize();
+                }
+            }
+        }
+
     }
 }
