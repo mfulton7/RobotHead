@@ -38,6 +38,12 @@ namespace Serial_UI
 
                 link.Open();
                 COM_Button.Text = "Close Link";
+
+                //create a thread dedicated to receiving info
+                Thread reader = new Thread(() => Program.Read(link));
+                reader.Start();
+
+                
             }
             else
             {
@@ -50,17 +56,17 @@ namespace Serial_UI
         //sends the context of the command line over arduino
         private void Command_Button_Click(object sender, EventArgs e)
         {
-            string[] input = Command_Line.Text.Split(' ');
-            byte[] in_bytes = new byte[3];
-            byte[] tmp;
-            tmp = Encoding.ASCII.GetBytes(input[0]);
-            in_bytes[0] = tmp[0];
-            tmp = Encoding.ASCII.GetBytes(input[1]);
-            in_bytes[1] = tmp[1];
-            tmp = Encoding.ASCII.GetBytes(input[2]);
-            in_bytes[2] = tmp[2];
+            if (link.IsOpen)
+            {
+                string[] input = Command_Line.Text.Split(' ');
+                byte[] bytes = Array.ConvertAll(input, byte.Parse);
+                Command_Line.Text = "";
 
-            link.Write(in_bytes, 0, in_bytes.Length);
+
+
+
+                link.Write(bytes, 0, bytes.Length);
+            }
         }
 
         //starts listening to pass input to clever bot
@@ -91,6 +97,20 @@ namespace Serial_UI
         {
             speech.Close_Thread();
             Application.Exit();
+        }
+
+        private void Blink_Button_Click(object sender, EventArgs e)
+        {
+            if (link.IsOpen)
+            {
+                byte[] b = new byte[4];
+                b[0] = 2;
+                b[1] = 0;
+                b[2] = 0;
+                b[3] = 0;
+                link.Write(b, 0, b.Length);
+            }
+
         }
     }
 }

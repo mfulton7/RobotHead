@@ -73,8 +73,24 @@ namespace Serial_UI
             Console.WriteLine("Cleverbot: " + response);
 
             Serial_Interface.Output_Value = response;
+            string[] syllables = response.Split('a', 'e', 'i', 'o', 'u', 'y');
+
+            List<byte[]> data = new List<byte[]>();
+            for(int i = 0; i< syllables.Length; i++)
+            {
+                data[i] = new byte[4];
+                data[i][0] = 0;
+                data[i][1] = 255;
+                int tmp = syllables[i].Length;
+                tmp = tmp * 15;
+                data[i][2] = (byte)tmp;
+                data[i][3] = 0;
+            }
             synth.Speak(response);
         }
+
+
+
 
         private void listening()
         {

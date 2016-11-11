@@ -34,3 +34,15 @@ C:\Users\Tyler-Laptop\Desktop\RobotHead-master\Serial_UI\Serial_UI\obj\Debug\Ser
 C:\Users\Tyler-Laptop\Desktop\RobotHead-master\Serial_UI\Serial_UI\obj\Debug\Serial_UI.Serial_Interface.resources
 C:\Users\Tyler-Laptop\Desktop\RobotHead-master\Serial_UI\Serial_UI\obj\Debug\Serial_UI.Properties.Resources.resources
 C:\Users\Tyler-Laptop\Desktop\RobotHead-master\Serial_UI\Serial_UI\obj\Debug\Serial_UI.csproj.GenerateResource.Cache
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Serial_UI.exe.config
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.exe
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.pdb
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Serial_UI.exe
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Serial_UI.pdb
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Cleverbot.Net.dll
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.csprojResolveAssemblyReference.cache
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.Serial_Interface.resources
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.Properties.Resources.resources
+C:\Users\Mitchell\Desktop\Serial_UI\Serial_UI\obj\Debug\Serial_UI.csproj.GenerateResource.Cache
