@@ -8,7 +8,13 @@
   <li>Download the above code.</li>
   <li>Client code can be modified and ran using Visual Studios.</li>
   <li>Open the Arduino code with the <a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a>.</li>
-  <li>Compile and upload the code to your Arduino.<li>
+  <li>Compile and upload the code to your Arduino.</li>
+  <li>Run client program</li>
+  <ul>
+    <li>Open the com link</li>
+    <li>Press start listening to begin chatting with the bot</li>
+    <li>Send manual commands with the form at the bottom left of the screen</li>
+  </ul>
 </ol>
 <h2>Arduino Wiring Diagram</h2>
 <h4>Wire your Arduino as follows in the diagram:</h4>
