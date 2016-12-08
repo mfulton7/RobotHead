@@ -12,9 +12,9 @@
 </ol>
 <h2>Arduino Wiring Diagram</h2>
 <h4>Wire your Arduino as follows in the diagram:</h4>
-<img src="http://imgur.com/a/9FyUI.png" alt="Arduino Wiring Diagram">
+<img href="http://imgur.com/a/9FyUI" alt="Arduino Wiring Diagram">
 <h4>Elvis head wire reference:</h4>
-<img src="http://www.robots-and-androids.com/images/Hacking-Elvis-Wiring.jpg" alt="Elvis Wire Reference">
+<blockquote class="imgur-embed-pub" lang="en" data-id="epEGhNp"><a href="//imgur.com/epEGhNp">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 <hr>
 <h4>All code within this repository is free to be distributed and used for whatever purpose you see fit</h4>
 <h4>All we ask is that you link back this this repo somewhere within the project for credit for the original code</h4>
